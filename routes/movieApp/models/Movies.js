@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const movieSchema = new mongoose.Schema({
-    title:{type:String, default:'', lowercase:true},
+    title:{type:String, unique:true, default:'', lowercase:true},
     rating:{type:String, default:'', lowercase:true},
-    synopsis:{type:String, unique:true, default:'', lowercase:true},
+    synopsis:{type:String, default:'', lowercase:true},
     releaseYear:{type:String, default:'', lowercase:true},
     genre:{type:String, default:'', lowercase:true},
     director:{type:String, default:'', lowercase:true},
