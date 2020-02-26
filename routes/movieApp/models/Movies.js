@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//create new schema for movies
 const movieSchema = new mongoose.Schema({
     title:{type:String, unique:true, default:'', lowercase:true},
     rating:{type:String, default:'', lowercase:true},
