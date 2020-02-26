@@ -3,16 +3,16 @@ const router = express.Router();
 const Movie = require('./movieApp/models/Movies');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
 
 //get all movies
 router.get('/movies', (req, res) => {
   Movie.find({})
   .then((movies) => {
-      return res.status(200).json(movies);
-      // return res.render('viewDictionary', {words: words})
+      // return res.status(200).json(movies);
+      return res.render('movies', {movies: movies})
   })
   .catch(err => res.status(500).json({message: 'Server error', err}));
 });
