@@ -17,6 +17,25 @@ router.get('/movies', (req, res) => {
   .catch(err => res.status(500).json({message: 'Server error', err}));
 });
 
+//render findMovie page
+router.get('/findMovie', (req, res) => {
+  return res.render('findMovie', {movie:null})
+});
+
+//get single movie
+router.get('/foundMovie', (req, res) => {
+  //find the movie we are searching for based on searchbox query in findMovie.ejs
+  Movie.findOne({title:req.query.title})
+  .then((movie) => {
+      if(movie){
+          return res.render('findMovie', {movie});
+      } else {
+          return res.status(400).json({message:'No movie found'});
+      }
+  })
+  .catch(err => res.status(500).json({message:'Server error', err}));
+});
+
 //adds a movie to the database
 router.post('/addMovie', (req, res) => {
   //make sure all fields are filled in
