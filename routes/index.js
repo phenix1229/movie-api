@@ -70,6 +70,11 @@ router.post('/addMovie', (req, res) => {
   })
 });
 
+//render the addMovie page
+router.get('/addMovie', (req, res) => {
+  return res.render('addMovie');
+});
+
 //update movie
 router.put('/:title', (req, res) => {
   //find movie based on parameters
