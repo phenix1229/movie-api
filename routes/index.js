@@ -92,6 +92,19 @@ router.put('/:title', (req, res) => {
       }
   })
   .catch(err => res.status(500).json({message:'Server error', err}));
-})
+});
+
+//delete movie
+router.delete('/:title', (req, res) => {
+  Movie.findOneAndDelete({title: req.params.title})
+  .then(movie => {
+      if(movie){
+          return res.status(200).json({message:'Movie deleted', movie: movie});
+      } else {
+          return res.status(500).json({message:'No movie to delete'});
+      }
+  })
+  .catch(err => res.status(500).json({message:'Movie not deleted', err: err}));
+});
 
 module.exports = router;

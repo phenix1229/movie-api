@@ -7,14 +7,3 @@ router.get('/', function(req, res, next) {
 });
 
 module.exports = router;
-
-// <% if(movies){ for(movie in movies){%>
-//   <h2><%= `${movie.title}` %></h2>
-  
-// <% }} %>
-// <p><%= `RATING: ${movie.rating.toUpperCase()}` %> </p>
-//         <p><%= `SYNOPSIS: ${movie.synopsis.toUpperCase()}` %> </p>
-//         <p><%= `RELEASE YEAR: ${movie.releaseYear}` %> </p>
-//         <p><%= `GENRE: ${movie.genre.toUpperCase()}` %> </p>
-//         <p><%= `DIRECTOR: ${movie.director.toUpperCase()}` %> </p>
-//         <p><%= `BOX OFFICE: ${movie.boxOffice}` %> </p>
